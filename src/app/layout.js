@@ -23,9 +23,48 @@ const openSans = Open_Sans({
   variable: "--font-open-sans",
 });
 
+// export const metadata = {
+//   title: "Humbee Design Studio",
+//   description: "Digital Agency",
+// };
+
 export const metadata = {
-  title: "Humbee Design Studio",
-  description: "Digital Agency",
+  title: {
+    default: "Humbee Design Studio",
+    template: "%s | Humbee Design Studio",
+  },
+  description: "Digital Agency specializing in modern web design and development",
+
+  keywords: ["web design", "digital agency", "next.js", "UI/UX"],
+
+  authors: [{ name: "Humbee Studio" }],
+
+  openGraph: {
+    title: "Humbee Design Studio",
+    description: "We build modern, high-performance websites",
+    url: "https://yourdomain.com",
+    siteName: "Humbee Studio",
+    images: [
+      {
+        url: "/logo.png", // put in public
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Humbee Design Studio",
+    description: "Digital Agency",
+    images: ["/logo.png"],
+  },
+
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({ children }) {
