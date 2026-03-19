@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+html,
+body {
+  height: 100%;
+}
+
+body::-webkit-scrollbar{
+  display: none;
+}
+
+@theme {
+  --font-instrument: var(--font-instrument);
+  --font-montserrat: var(--font-montserrat);
+  --font-open-sans: var(--font-open-sans);
+
+  --color-primary: var(--color-primary);
+  --color-highlight: var(--color-highlight);
+  --color-head: var(--color-head);
+  --color-secondary: var(--color-secondary);
+  --color-surface: var(--color-surface);
+  --color-bg-light: var(--color-bg-light);
+  --color-bg-soft: var(--color-bg-soft);
+  --radius-hero: var(--radius-hero);
+  --radius-card: var(--radius-card);
+  
+  --color-text-main: var(--color-text-main);
+  --color-text-muted: var(--color-text-muted);
+  
+  --color-card-bg: var(--color-card-bg);
+  --color-inactive-bg: var(--color-inactive-bg);
+
+  --background-image-noise: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+:root {
+  --color-primary: #0039C8;
+  --color-secondary: #1759FF;
+  --color-surface: #12244A;
+  --color-bg-light: #ffffff;
+  --color-bg-soft: #E6E6E6;
+  --color-head: #F9EF61;
+  --color-highlight: #023E8A;
+
+  --radius-hero: 40px;
+  --radius-card: 16px;
+  
+  --color-text-main: #0f172a;
+  --color-text-muted: #475569;
+
+  --color-card-bg: #dadada;
+  --color-inactive-bg: #d7e5efca;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-left {
+  animation: scroll-left 20s linear infinite;
+}
+
+.bg-noise {
+  background-image: var(--background-image-noise);
+}
+
+
+/* Strike Animation CSS */
+
+@layer utilities {
+  .strike {
+    position: relative;
+    display: inline-block;
+  }
+
+  .strike-line {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    height: 4px;
+    width: 100%;
+    background: var(--color-primary);
+    display: block;
+    transform: translateY(-50%) scaleX(0);
+    transform-origin: left;
+  }
+}
