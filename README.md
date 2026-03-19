@@ -37,9 +37,8 @@ Built with performance, reusability, and enterprise-grade architecture in mind.
 ├── eslint.config.mjs
 ├── jsconfig.json
 └── README.md
-
-
 ---
+
 
 ## ⚙️ Features
 
