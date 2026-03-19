@@ -88,8 +88,9 @@ const About = () => {
         <div className="w-full md:w-2/5">
           <h2 
             ref={textRef}
-            className="font-instrument text-[2.4rem] leading-[1.3] tracking-tight md:text-justify text-text-main md:text-[2.8rem] lg:text-[3.5rem]"
+            className="font-instrument text-[2.4rem] leading-[1.3] tracking-tight  text-text-main md:text-[2.8rem] lg:text-[3.5rem]"
           >
+            {/* md:text-justify */}
             A Forward Thinking
             <AnimatedImage src="/brain.png" alt="Intelligence" />
             <br className="hidden lg:block" />
