@@ -1,79 +1,66 @@
-Built with **Next.js**, **Tailwind CSS**, and **Lucide Icons**.
+# 🚀 HDS New Website
 
-## Getting Started
+A modern, scalable **Next.js (App Router)** web application powered by **Headless WordPress (ACF)** and styled using **Tailwind CSS**.  
+Built with performance, reusability, and enterprise-grade architecture in mind.
 
-First, clone the repository and install the dependencies:
+---
+
+## 📌 Tech Stack
+
+- **Frontend:** Next.js 13+ (App Router)
+- **Styling:** Tailwind CSS
+- **Animations:** GSAP / Framer Motion
+- **CMS:** WordPress (Headless) + ACF
+- **Data Fetching:** REST API
+- **State Management:** React Hooks / Context API
+
+---
+
+## 📂 Project Structure
+.
+├── src
+│ ├── app # Next.js App Router pages
+│ ├── components # Reusable UI components
+│ ├── animations # GSAP / motion animations
+│ ├── context # Global state/context providers
+│ ├── hooks # Custom React hooks
+│ ├── providers # App-level providers
+│
+├── public # Static assets
+├── node_modules
+├── .next # Next.js build output
+│
+├── package.json
+├── next.config.mjs
+├── postcss.config.mjs
+├── eslint.config.mjs
+├── jsconfig.json
+└── README.md
+
+
+---
+
+## ⚙️ Features
+
+- App Router architecture (Next.js 13+)
+- Fully dynamic content via WordPress ACF
+- Clean separation of server & client components
+- Reusable and scalable component structure
+- Animation-ready architecture (GSAP / Framer Motion)
+- SEO-friendly rendering
+- Tailwind-based responsive design
+- Optimized API fetching
+
+## 🔗 CMS Integration (Headless WordPress)
+
+This project uses WordPress as a headless CMS.
+
+## 🧑‍💻 Getting Started
+
+### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/humbeedevelopers/hdsnewwebisite.git
-cd my-app
+git clone https://github.com/your-username/hdsnewwebsite.git
+cd hdsnewwebsite
 npm install
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{/* Navigation Tabs */}
-<div className="flex gap-6 md:gap-8 mb-8 overflow-x-auto no-scrollbar whitespace-nowrap border-b border-transparent">
-  {tabs.map((tab) => (
-    <button
-      key={tab}
-      onClick={() => setActiveTab(tab)}
-      /* Adjusted: text-2xl on mobile, text-4xl on desktop. Added flex-shrink-0 */
-      className="relative text-2xl md:text-4xl font-instrument pb-4 outline-none flex-shrink-0"
-    >
-      <span className={`transition-colors duration-300 ${
-        activeTab === tab ? 'text-text-main' : 'text-bg-soft hover:text-text-main cursor-pointer'
-      }`}>
-        {tab}
-      </span>
-      
-      {/* Optional: Visual indicator for active tab on mobile since hover isn't as reliable */}
-      {activeTab === tab && (
-        <motion.div 
-          layoutId="activeTabUnderline"
-          className="absolute bottom-0 left-0 right-0 h-[2px] bg-text-main md:hidden"
-        />
-      )}
-    </button>
-  ))}
-</div>
-
-
-
-
-
-
-
-
-{/* Navigation Tabs */}
-      <div className="flex gap-8 mb-8">
-        {tabs.map((tab) => (
-          <button
-            key={tab}
-            onClick={() => setActiveTab(tab)}
-            className="relative text-4xl font-instrument pb-4 outline-none"
-          >
-            <span className={`transition-colors duration-300 ${
-              activeTab === tab ? 'text-text-main' : 'text-bg-soft hover:text-text-main cursor-pointer'
-            }`}>
-              {tab}
-            </span>
-          </button>
-        ))}
-      </div># hds
-# hds
-# hds
-# hds
-# hds
+npm run dev
