@@ -28,7 +28,7 @@ const TabbedComponent = ({ tabsData = [] }) => {
           <button
             key={index}
             onClick={() => setActiveTabIndex(index)}
-            className="relative text-2xl md:text-4xl font-instrument pb-4 outline-none"
+            className="relative text-2xl md:text-4xl font-instrument pb-4 outline-none cursor-pointer"
           >
             <span
               className={`transition-colors duration-300 ${
