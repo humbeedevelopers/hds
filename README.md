@@ -20,16 +20,16 @@ Built with performance, reusability, and enterprise-grade architecture in mind.
 
 
 ├── src
-│ ├── app # Next.js App Router pages
-│ ├── components # Reusable UI components
-│ ├── animations # GSAP / motion animations
-│ ├── context # Global state/context providers
-│ ├── hooks # Custom React hooks
-│ ├── providers # App-level providers
+│ ├── app/ # Next.js App Router pages
+│ ├── components/ # Reusable UI components
+│ ├── animations/ # GSAP / Framer Motion logic
+│ ├── context/ # Global state/context providers
+│ ├── hooks/ # Custom React hooks
+│ ├── providers/ # App-level providers
 │
-├── public # Static assets
-├── node_modules
-├── .next # Next.js build output
+├── public/ # Static assets
+├── node_modules/
+├── .next/ # Next.js build output
 │
 ├── package.json
 ├── next.config.mjs
@@ -65,3 +65,5 @@ git clone https://github.com/your-username/hdsnewwebsite.git
 cd hdsnewwebsite
 npm install
 npm run dev
+
+
