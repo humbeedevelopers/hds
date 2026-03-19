@@ -1,5 +1,5 @@
 // "use client"
-
+import { getPageBySlug } from "@/lib/api";
 import { Clients, Footer, Hero } from "@/components"
 // import { FAQs } from "@/components/FooterTabs"
 import ServiceBenifits from "@/components/ServiceBenifits"
@@ -11,12 +11,15 @@ import AboutJay from "@/components/Utils/AboutJay"
 // import { useState } from "react"
 
 
-const Page = () => {
+const Page = async () => {
+  const pageData = await getPageBySlug("services");
+
+  const acf = pageData?.acf || {};
   // const [activeFooter, setActiveFooter] = useState("faqs");
   return (
     <main className="w-full">
       <ServicesPageClient>
-      <ServicesHero />
+      <ServicesHero  data={acf} />
       <div className="px-4 md:px-20 w-full">
         <Clients head1={'Featured Clients'} showPara />
         <TabbedComponent />
