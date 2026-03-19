@@ -17,7 +17,8 @@ Built with performance, reusability, and enterprise-grade architecture in mind.
 ---
 
 ## 📂 Project Structure
-.
+
+
 ├── src
 │ ├── app # Next.js App Router pages
 │ ├── components # Reusable UI components
