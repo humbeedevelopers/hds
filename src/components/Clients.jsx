@@ -1,3 +1,4 @@
+"use client"
 import WordReveal from '@/Animations/WordReveal';
 import React from 'react';
 import {motion} from 'framer-motion'
