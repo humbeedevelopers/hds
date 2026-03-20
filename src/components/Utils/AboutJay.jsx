@@ -60,7 +60,7 @@ const AboutJay = ({ data }) => {
 
             {/* Image Column */}
             {about_jay_image?.url && (
-                <div className="relative w-1/2 max-w-md aspect-square order-1 lg:order-2">
+                <div className="relative w-full lg:w-1/2 max-w-md aspect-square order-1 lg:order-2">
                     <div className="relative w-full h-full overflow-hidden rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] group">
                         <SlideReveal>
                             <Image
