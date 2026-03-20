@@ -83,7 +83,8 @@ const rows = Array.from({ length: 3 }, (_, i) => ({
             >
               <div
                 className="flex animate-scroll-left w-max"
-                style={{ animationDelay: row.delay }}
+                style={{ animationDelay: row.delay,transform: rowIndex % 2 !== 0 ? "translateX(80px)" : "translateX(0px)" }}
+                
               >
                 {/* {[...row.logos, ...row.logos, ...row.logos].map((logo, index) => ( */}
                    {[...row.logos, ...row.logos].map((logo, index) => (
