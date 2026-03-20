@@ -32,8 +32,8 @@ const Clients = ({head1, head2, showPara = false , logos = [] }) => {
 //     })
 //   );
 const chunkSize = Math.ceil(logos.length / 3);
-const rows = [0, 1, 2].map((i) => ({
-// const rows = Array.from({ length: 3 }, (_, i) => ({
+// const rows = [0, 1, 2].map((i) => ({
+const rows = Array.from({ length: 3 }, (_, i) => ({
   logos: logos.slice(i * chunkSize, (i + 1) * chunkSize),
   delay: `${-i * 5}s`,
 }));
