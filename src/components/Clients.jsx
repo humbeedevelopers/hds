@@ -87,7 +87,7 @@ const rows = Array.from({ length: 3 }, (_, i) => ({
                 
               >
                 {/* {[...row.logos, ...row.logos, ...row.logos].map((logo, index) => ( */}
-                   {[...row.logos, ...row.logos].map((logo, index) => (
+                   {[...row.logos, ...row.logos,, ...row.logos].map((logo, index) => (
                   <div 
                     key={`${logo.id}-${index}`} 
                     className="flex shrink-0 items-center justify-center grayscale px-12"
