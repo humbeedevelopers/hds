@@ -16,7 +16,26 @@ const Page = async () => {
 
   const acf = pageData?.acf || {};
 
-   // helper to build items
+  const buildClientLogos = (clientLogosObj) => {
+  if (!clientLogosObj) return [];
+
+  return Object.keys(clientLogosObj)
+    .filter(key => key.startsWith("client_logo_"))
+    .map((key, index) => {
+      const logo = clientLogosObj[key];
+
+      return {
+        id: index + 1,
+        name: logo?.title || `Client ${index + 1}`,
+        src: logo?.url, // IMPORTANT
+      };
+    })
+    .filter(item => item.src); // remove empty
+};
+
+const clientLogos = buildClientLogos(acf.client_logos);
+
+  // helper to build items
   const buildItems = (group, prefix, count) => {
     if (!group) return [];
 
@@ -46,19 +65,36 @@ const Page = async () => {
       tab_items: buildItems(acf.industries, "ind", 3),
     },
   ].filter(tab => tab.tab_items.length > 0);
-  // const [activeFooter, setActiveFooter] = useState("faqs");
+
+
+  const buildServiceCards = (group) => {
+    if (!group || !group.cards_count) return [];
+
+    return Array.from({ length: group.cards_count }, (_, i) => {
+      const index = i + 1;
+      const card = group[`card_${index}`];
+
+      return {
+        id: index,
+        title: card?.title,
+        description: card?.description,
+      };
+    }).filter(item => item.title);
+  };
+  const serviceCards = buildServiceCards(acf);
+   // const [activeFooter, setActiveFooter] = useState("faqs");
   return (
     <main className="w-full">
       <ServicesPageClient>
-      <ServicesHero  data={acf} />
-      <div className="px-4 md:px-20 w-full">
-        <Clients head1={'Featured Clients'} showPara />
-        <TabbedComponent tabsData={tabsData}/>
-        <ServiceBenifits />
-        <AboutJay />
-        <ServicesCards />
-      </div>
-    </ServicesPageClient>
+        <ServicesHero data={acf} />
+        <div className="px-4 md:px-20 w-full">
+          <Clients head1={'Featured Clients'} showPara logos={clientLogos}/>
+          <TabbedComponent tabsData={tabsData} />
+          <ServiceBenifits data={acf} />
+          <AboutJay data={acf.about_jay} />
+          <ServicesCards data={serviceCards} />
+        </div>
+      </ServicesPageClient>
       {/* <Footer activeFilter={activeFooter} setActiveFilter={setActiveFooter} /> */}
     </main>
   )
