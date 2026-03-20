@@ -55,7 +55,7 @@ const Page = async () => {
         <Clients head1={'Featured Clients'} showPara />
         <TabbedComponent tabsData={tabsData}/>
         <ServiceBenifits data={acf}/>
-        <AboutJay />
+        <AboutJay data={acf.about_jay}/>
         <ServicesCards />
       </div>
     </ServicesPageClient>
