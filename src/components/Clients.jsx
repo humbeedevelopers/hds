@@ -4,27 +4,46 @@ import React from 'react';
 import {motion} from 'framer-motion'
 import FadeInUpText from '@/Animations/FadeInUpText';
 
-const Clients = ({head1, head2, showPara = false}) => {
-  const CLIENT_LOGOS = [
-    { id: 1, name: 'Shivalik', src: '/shivalik.png' },
-    { id: 2, name: 'Shivalik', src: '/shivalik.png' },
-    { id: 3, name: 'Shivalik', src: '/shivalik.png' },
-    { id: 4, name: 'Shivalik', src: '/shivalik.png' },
-    { id: 5, name: 'Shivalik', src: '/shivalik.png' },
-    { id: 6, name: 'Shivalik', src: '/shivalik.png' },
-    { id: 7, name: 'Shivalik', src: '/shivalik.png' },
-    { id: 8, name: 'Shivalik', src: '/shivalik.png' },
-    { id: 9, name: 'Shivalik', src: '/shivalik.png' },
-    { id: 10, name: 'Shivalik', src: '/shivalik.png' },
-    { id: 11, name: 'Shivalik', src: '/shivalik.png' },
-    { id: 12, name: 'Shivalik', src: '/shivalik.png' },
-  ];
+const Clients = ({head1, head2, showPara = false , logos = [] }) => {
+  // const CLIENT_LOGOS = [
+  //   { id: 1, name: 'Shivalik', src: '/shivalik.png' },
+  //   { id: 2, name: 'Shivalik', src: '/shivalik.png' },
+  //   { id: 3, name: 'Shivalik', src: '/shivalik.png' },
+  //   { id: 4, name: 'Shivalik', src: '/shivalik.png' },
+  //   { id: 5, name: 'Shivalik', src: '/shivalik.png' },
+  //   { id: 6, name: 'Shivalik', src: '/shivalik.png' },
+  //   { id: 7, name: 'Shivalik', src: '/shivalik.png' },
+  //   { id: 8, name: 'Shivalik', src: '/shivalik.png' },
+  //   { id: 9, name: 'Shivalik', src: '/shivalik.png' },
+  //   { id: 10, name: 'Shivalik', src: '/shivalik.png' },
+  //   { id: 11, name: 'Shivalik', src: '/shivalik.png' },
+  //   { id: 12, name: 'Shivalik', src: '/shivalik.png' },
+  // ];
+  // const CLIENT_LOGOS = [...]
 
-  const rows = [
-    { logos: CLIENT_LOGOS.slice(0, 4), delay: "0s" },
-    { logos: CLIENT_LOGOS.slice(4, 8), delay: "-5s" },
-    { logos: CLIENT_LOGOS.slice(8, 12), delay: "-10s" },
-  ];
+   // ✅ Split logos into rows dynamically
+  // const chunkSize = 4;
+// const chunkSize = Math.ceil(logos.length / 3);
+//   const rows = Array.from(
+//     { length: Math.ceil(logos.length / chunkSize) },
+//     (_, i) => ({
+//       logos: logos.slice(i * chunkSize, (i + 1) * chunkSize),
+//       delay: `${-i * 5}s`,
+//     })
+//   );
+const chunkSize = Math.ceil(logos.length / 3);
+const rows = [0, 1, 2].map((i) => ({
+// const rows = Array.from({ length: 3 }, (_, i) => ({
+  logos: logos.slice(i * chunkSize, (i + 1) * chunkSize),
+  delay: `${-i * 5}s`,
+}));
+  //  If no logos, don't render section
+  if (!logos.length) return null;
+  // const rows = [
+  //   { logos: CLIENT_LOGOS.slice(0, 4), delay: "0s" },
+  //   { logos: CLIENT_LOGOS.slice(4, 8), delay: "-5s" },
+  //   { logos: CLIENT_LOGOS.slice(8, 12), delay: "-10s" },
+  // ];
 
   return (
     <section className="w-full py-8 lg:py-6 overflow-hidden px-4 sm:px-8 lg:px-12">
@@ -66,7 +85,8 @@ const Clients = ({head1, head2, showPara = false}) => {
                 className="flex animate-scroll-left w-max"
                 style={{ animationDelay: row.delay }}
               >
-                {[...row.logos, ...row.logos, ...row.logos].map((logo, index) => (
+                {/* {[...row.logos, ...row.logos, ...row.logos].map((logo, index) => ( */}
+                   {[...row.logos, ...row.logos].map((logo, index) => (
                   <div 
                     key={`${logo.id}-${index}`} 
                     className="flex shrink-0 items-center justify-center grayscale px-12"

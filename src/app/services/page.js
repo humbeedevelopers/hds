@@ -16,6 +16,25 @@ const Page = async () => {
 
   const acf = pageData?.acf || {};
 
+  const buildClientLogos = (clientLogosObj) => {
+  if (!clientLogosObj) return [];
+
+  return Object.keys(clientLogosObj)
+    .filter(key => key.startsWith("client_logo_"))
+    .map((key, index) => {
+      const logo = clientLogosObj[key];
+
+      return {
+        id: index + 1,
+        name: logo?.title || `Client ${index + 1}`,
+        src: logo?.url, // IMPORTANT
+      };
+    })
+    .filter(item => item.src); // remove empty
+};
+
+const clientLogos = buildClientLogos(acf.client_logos);
+
   // helper to build items
   const buildItems = (group, prefix, count) => {
     if (!group) return [];
@@ -69,7 +88,7 @@ const Page = async () => {
       <ServicesPageClient>
         <ServicesHero data={acf} />
         <div className="px-4 md:px-20 w-full">
-          <Clients head1={'Featured Clients'} showPara />
+          <Clients head1={'Featured Clients'} showPara logos={clientLogos}/>
           <TabbedComponent tabsData={tabsData} />
           <ServiceBenifits data={acf} />
           <AboutJay data={acf.about_jay} />
