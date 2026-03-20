@@ -54,7 +54,7 @@ const Page = async () => {
       <div className="px-4 md:px-20 w-full">
         <Clients head1={'Featured Clients'} showPara />
         <TabbedComponent tabsData={tabsData}/>
-        <ServiceBenifits />
+        <ServiceBenifits data={acf}/>
         <AboutJay />
         <ServicesCards />
       </div>
